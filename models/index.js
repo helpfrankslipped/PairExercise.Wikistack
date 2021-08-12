@@ -21,6 +21,15 @@ const Page = db.define("page", {
   },
 });
 
+/**
+ *
+ * @param { String } string
+ * @returns { String }
+ */
+Page.isSafe = function(string) {
+  return newString = string.replace(/\s/g, '_').replace(/\W/g, '')
+}
+
 const User = db.define("user", {
   name: {
     type: Sequelize.STRING,

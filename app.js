@@ -21,7 +21,7 @@ app.use('/wiki', wikiRouter);
 app.use('/users', userRouter);
 
 app.get("/", (req, res) => {
-  res.send(layout());
+  res.redirect('/wiki');
 });
 
 app.listen(PORT, async () => {

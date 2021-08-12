@@ -14,6 +14,7 @@ router.get('/', async (req, res, next) => {
 router.get('/add', (req, res) => {
   res.send(addPage())
 })
+
 router.post('/', async (req, res, next) => {
   try {
     const user =  await User.create({
@@ -23,12 +24,12 @@ router.post('/', async (req, res, next) => {
 
     const page = await Page.create({
       title: req.body.title,
-      slug: req.body.title,
+      slug: Page.isSafe(req.body.title),
       content: req.body.content,
       status: req.body.status
     })
 
-    res.send(wikiPage(page, user))
+    res.redirect('/')
   } catch (error) {
     next(error)
   }
