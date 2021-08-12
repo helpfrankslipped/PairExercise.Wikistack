@@ -18,7 +18,6 @@ const Page = db.define("page", {
   },
   status: {
     type: Sequelize.ENUM("open", "closed"),
-    defaultValue: "open",
   },
 });
 
@@ -30,7 +29,7 @@ const User = db.define("user", {
   email: {
     type: Sequelize.STRING,
     allowNull: false,
-    validare: {
+    validate: {
       isEmail: true,
     },
   },
