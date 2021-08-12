@@ -24,7 +24,6 @@ router.post('/', async (req, res, next) => {
 
     const page = await Page.create({
       title: req.body.title,
-      slug: Page.isSafe(req.body.title),
       content: req.body.content,
       status: req.body.status
     })

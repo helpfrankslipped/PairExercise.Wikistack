@@ -30,6 +30,10 @@ Page.isSafe = function(string) {
   return newString = string.replace(/\s/g, '_').replace(/\W/g, '')
 }
 
+Page.addHook('beforeValidate', (page) =>{
+  page.slug = Page.isSafe(page.title)
+})
+
 const User = db.define("user", {
   name: {
     type: Sequelize.STRING,
